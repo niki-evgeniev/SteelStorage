@@ -38,4 +38,6 @@ out/
 
 ### my ###
 /src/main/resources/static/css/*
+/src/main/resources/static/css/
+
 
