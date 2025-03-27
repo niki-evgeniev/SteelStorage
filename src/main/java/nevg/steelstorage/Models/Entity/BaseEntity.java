@@ -1,4 +1,4 @@
-package nevg.steelstorage.models.entity;
+package nevg.steelstorage.Models.Entity;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
