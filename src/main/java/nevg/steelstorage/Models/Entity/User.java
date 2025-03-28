@@ -1,9 +1,10 @@
 package nevg.steelstorage.Models.Entity;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Table
 @Entity(name = "users")
@@ -20,6 +21,13 @@ public class User extends BaseEntity {
 
     @Column(name = "phone_number")
     private String phoneNumber;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_uuid"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private List<UserRole> roles = new ArrayList<>();
 
     public User() {
     }
@@ -54,5 +62,13 @@ public class User extends BaseEntity {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public List<UserRole> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<UserRole> roles) {
+        this.roles = roles;
     }
 }
