@@ -5,6 +5,7 @@ import nevg.steelstorage.Models.DTO.RegisterNewUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -39,5 +40,10 @@ public class UserController {
         modelAndView.addObject("bad_credentials", true);
         System.out.println("ERROR LOGIN");
         return modelAndView;
+    }
+
+    @ModelAttribute
+    RegisterNewUser registerNewUser() {
+        return new RegisterNewUser();
     }
 }

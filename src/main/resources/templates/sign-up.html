@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
     <meta charset="utf-8">
@@ -11,13 +12,13 @@
           content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="shortcut icon" href="img/icons/icon-48x48.png"/>
+    <link rel="shortcut icon" href="/img/icons/icon-48x48.png"/>
 
     <link rel="canonical" href="https://demo-basic.adminkit.io/pages-sign-up.html"/>
 
     <title>Sign Up | AdminKit Demo</title>
 
-    <link href="css/app.css" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
@@ -37,43 +38,80 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="m-sm-4">
-                                <form>
+                                <form th:method="POST"
+                                      th:action="@{/sign_up}"
+                                      th:object="${registerNewUser}">
                                     <div class="mb-3">
                                         <label class="form-label">Name</label>
-                                        <input class="form-control form-control-lg"
+                                        <input th:field="*{firstName}"
+
+                                               class="form-control form-control-lg"
                                                type="text"
                                                name="name"
                                                placeholder="Enter your name"/>
+                                        <div class="text-danger text-center"
+                                             th:if="${#fields.hasErrors('firstName')}"
+                                             th:errors="*{firstName}">Please, enter your name!
+                                        </div>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Last Name</label>
-                                        <input class="form-control form-control-lg"
+                                        <input th:field="*{lastName}"
+                                               class="form-control form-control-lg"
                                                type="text"
-                                               name="company"
-                                               placeholder="Enter your company name"/>
+                                               name="lastName"
+                                               placeholder="Enter your last name"/>
+                                        <div class="text-danger text-center"
+                                             th:if="${#fields.hasErrors('lastName')}"
+                                             th:errors="*{lastName}">Please, enter your name!
+                                        </div>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Email</label>
-                                        <input class="form-control form-control-lg"
+                                        <input th:field="*{email}"
+                                               class="form-control form-control-lg"
                                                type="email"
                                                name="email"
                                                placeholder="Enter your email"/>
+                                        <div class="text-danger text-center"
+                                             th:if="${#fields.hasErrors('email')}"
+                                             th:errors="*{email}">Please, enter your name!
+                                        </div>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Password</label>
-                                        <input class="form-control form-control-lg"
+                                        <input th:field="*{password}"
+                                               class="form-control form-control-lg"
                                                type="password" name="password"
                                                placeholder="Enter password"/>
+                                        <div class="text-danger text-center"
+                                             th:if="${#fields.hasErrors('password')}"
+                                             th:errors="*{password}">Please, enter your name!
+                                        </div>
+                                        <div class="text-danger text-center"
+                                             th:if="${#fields.hasErrors('global')}"
+                                             th:errors="*{global}">Please, enter your name!
+                                        </div>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Confirm Password</label>
-                                        <input class="form-control form-control-lg"
+                                        <input th:field="*{confirmPassword}"
+                                               class="form-control form-control-lg"
                                                type="password" name="password"
                                                placeholder="Enter password"/>
+                                        <div class="text-danger text-center"
+                                             th:if="${#fields.hasErrors('confirmPassword')}"
+                                             th:errors="*{confirmPassword}">Please, enter your name!
+                                        </div>
+                                        <div class="text-danger"
+                                             th:if="${#fields.hasErrors('global')}"
+                                             th:errors="*{global}">Please, enter your name!
+                                        </div>
                                     </div>
                                     <div class="text-center mt-3">
-                                        <a href="index.html" class="btn btn-lg btn-primary">Sign up</a>
-                                        <!-- <button type="submit" class="btn btn-lg btn-primary">Sign up</button> -->
+                                        <!--                                        <a href="index.html" class="btn btn-lg btn-primary">Sign up</a>-->
+                                        <button class="btn btn-lg btn-primary" type="submit">Sign up</button>
+<!--                                        <button type="submit" class="btn btn-lg btn-primary">Sign up</button>-->
                                     </div>
                                 </form>
                             </div>
