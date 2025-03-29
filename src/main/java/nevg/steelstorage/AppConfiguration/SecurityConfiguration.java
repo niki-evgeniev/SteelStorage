@@ -1,7 +1,5 @@
 package nevg.steelstorage.AppConfiguration;
 
-
-import jakarta.servlet.http.HttpServletResponse;
 import nevg.steelstorage.Repository.UserRepository;
 import nevg.steelstorage.Service.Impl.SteelStorageUserService;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,7 +19,7 @@ public class SecurityConfiguration {
 
     private final String rememberMeKey;
 
-    public SecurityConfiguration(@Value("${carpmap.remember.me.key}")
+    public SecurityConfiguration(@Value("${steel storage.remember.me.key}")
                                  String rememberMeKey) {
         this.rememberMeKey = rememberMeKey;
     }
