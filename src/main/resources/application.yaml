@@ -18,7 +18,6 @@ spring:
   sql:
     init:
       mode: never
-
   jpa:
     hibernate:
       ddl-auto: update
@@ -27,10 +26,6 @@ spring:
       hibernate:
         format_sql: true
     defer-datasource-initialization: true
-  security:
-    user:
-      name: admin
-      password: "{bcrypt}$2a$12$Wbw4laM3ijH8SsumBhWwuePIRHIpzE0AX1ufkwHpnviStkV2fIHCu"
   mail:
     host: smtp.gmail.com
     port: 587
@@ -42,12 +37,6 @@ spring:
           auth: true
           starttls:
             enable: true
-
-  #Cloudinary Properties
-  #cloudinary:
-  #api-key:
-  #api-secret:
-  #cloud-name:
   thymeleaf: # Thymeleaf
     cache: false
     mode: HTML
@@ -59,8 +48,8 @@ spring:
       cache:
         period: 0
 
-carpmap:
-  remember.me.key: ${REMEMBER_ME_KEY}
+steel storage:
+  remember.me.key: 1412324
 logging:
   level:
     #    org.hibernate.SQL: DEBUG
