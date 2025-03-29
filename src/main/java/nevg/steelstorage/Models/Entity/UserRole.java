@@ -1,15 +1,18 @@
 package nevg.steelstorage.Models.Entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import nevg.steelstorage.Models.Enums.RoleType;
 
+import java.util.UUID;
+
 @Table
-@Entity(name = "user_roles")
-public class UserRole extends BaseEntity {
+@Entity(name = "roles")
+public class UserRole {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Enumerated(EnumType.STRING)
     private RoleType roleType;
@@ -19,6 +22,14 @@ public class UserRole extends BaseEntity {
 
     public RoleType getRoleType() {
         return roleType;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setRoleType(RoleType roleType) {
