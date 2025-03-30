@@ -1,4 +1,4 @@
-<nav id="sidebar" class="sidebar js-sidebar">
+<nav id="sidebar" class="sidebar js-sidebar" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <div class="sidebar-content js-simplebar">
         <a class="sidebar-brand" th:href="@{/}">
             <span class="align-middle">Steel Storage</span>
@@ -21,14 +21,17 @@
                 </a>
             </li>
 
-            <li class="sidebar-item">
+            <li sec:authorize="!isAuthenticated()"
+                class="sidebar-item">
                 <a class="sidebar-link" th:href="@{/sign_in}">
                     <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Sign In</span>
                 </a>
             </li>
 
-            <li class="sidebar-item">
-                <a class="sidebar-link" th:href="@{/sign_up}">
+            <li sec:authorize="!isAuthenticated()"
+                class="sidebar-item">
+                <a class="sidebar-link"
+                   th:href="@{/sign_up}">
                     <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Sign Up</span>
                 </a>
             </li>
@@ -87,6 +90,20 @@
                 <a class="sidebar-link" href="maps-google.html">
                     <i class="align-middle" data-feather="map"></i> <span class="align-middle">Maps</span>
                 </a>
+            </li>
+            <li sec:authorize="isAuthenticated()"
+                class="sidebar-header">
+                LOGOUT
+            </li>
+            <li sec:authorize="isAuthenticated()"
+                class="sidebar-item">
+                <a href="#" class="sidebar-link" onclick="document.getElementById('logout-form').submit(); return false;">
+                    <i class="align-middle" data-feather="log-out"></i>
+                    <span class="align-middle">LOGOUT</span>
+                </a>
+                <form id="logout-form" th:method="POST" th:action="@{/users/logout}" style="display: none;">
+                    <input type="submit">
+                </form>
             </li>
         </ul>
 

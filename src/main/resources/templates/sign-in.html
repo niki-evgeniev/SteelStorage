@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -40,17 +41,25 @@
                                     <img src="/img/download/unsplash-1.jpg" alt="Charles Hall"
                                          class="img-fluid rounded-circle" width="132" height="132"/>
                                 </div>
-                                <form>
+                                <form th:method="POST"
+                                      th:action="@{/sign_in}">
+                                    <p th:if="${bad_credentials}" class="errors alert alert-danger">
+                                        Invalid username or password.
+                                    </p>
                                     <div class="mb-3">
                                         <label class="form-label">Email</label>
                                         <input class="form-control form-control-lg"
-                                               type="email" name="email"
+                                               type="email"
+                                               name="email"
+                                               id="email"
                                                placeholder="Enter your email"/>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Password</label>
                                         <input class="form-control form-control-lg"
-                                               type="password" name="password"
+                                               type="password"
+                                               name="password"
+                                               id="password"
                                                placeholder="Enter your password"/>
                                         <small>
                                             <a href="index.html">Forgot password?</a>
@@ -64,8 +73,8 @@
                                         </label>
                                     </div>
                                     <div class="text-center mt-3">
-                                        <a href="index.html" class="btn btn-lg btn-primary">Sign in</a>
-                                        <!-- <button type="submit" class="btn btn-lg btn-primary">Sign in</button> -->
+<!--                                        <a href="index.html" class="btn btn-lg btn-primary">Sign in</a>-->
+                                         <button type="submit" class="btn btn-lg btn-primary">Sign in</button>
                                     </div>
                                 </form>
                             </div>
