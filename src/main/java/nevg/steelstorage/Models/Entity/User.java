@@ -2,7 +2,9 @@ package nevg.steelstorage.Models.Entity;
 
 
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,11 +27,18 @@ public class User extends BaseEntity {
     @Column(name = "phone_number")
     private String phoneNumber;
 
+    @Column(name = "register_date", columnDefinition = "DATETIME(0)")
+//    @DateTimeFormat(pattern = "dd.MM.yyyy HH:mm")
+    private LocalDateTime registerDate;
+
+    @Column(name = "edit_date", columnDefinition = "DATETIME(0)")
+    private LocalDateTime editDate;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(name = "user_uuid"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
+            inverseJoinColumns = @JoinColumn(name = "roles_id"))
     private List<UserRole> roles = new ArrayList<>();
 
     public User() {
@@ -81,5 +90,21 @@ public class User extends BaseEntity {
 
     public void setRoles(List<UserRole> roles) {
         this.roles = roles;
+    }
+
+    public LocalDateTime getRegisterDate() {
+        return registerDate;
+    }
+
+    public void setRegisterDate(LocalDateTime registerDate) {
+        this.registerDate = registerDate;
+    }
+
+    public LocalDateTime getEditDate() {
+        return editDate;
+    }
+
+    public void setEditDate(LocalDateTime editDate) {
+        this.editDate = editDate;
     }
 }
