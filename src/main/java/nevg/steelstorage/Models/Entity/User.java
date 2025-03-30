@@ -107,4 +107,6 @@ public class User extends BaseEntity {
     public void setEditDate(LocalDateTime editDate) {
         this.editDate = editDate;
     }
+
+
 }

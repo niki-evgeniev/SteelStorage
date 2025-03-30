@@ -1,6 +1,5 @@
 package nevg.steelstorage.Service.Impl;
 
-import nevg.steelstorage.Models.DTO.ErrorRegisterNewUser;
 import nevg.steelstorage.Models.DTO.RegisterNewUser;
 import nevg.steelstorage.Models.Entity.User;
 import nevg.steelstorage.Models.Entity.UserRole;
@@ -12,9 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,7 +38,11 @@ public class UserServiceImpl implements UserService {
             user.setFirstName("Admin");
             user.setLastName("Adminov");
             user.setPhoneNumber("12345");
-            user.setPassword("1234");
+            // pass is : 123
+            String password = "123";
+            user.setPassword(passwordEncoder.encode(password));
+            List<UserRole> all = userRoleRepository.findAll();
+            user.setRoles(all);
             user.setRegisterDate(LocalDateTime.now());
             userRepository.save(user);
         }

@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Entity(name = "orders")
 public class Order extends BaseEntity {
 
-    @Column(name = "added_date")
+    @Column(name = "added_date", columnDefinition = "DATETIME(0)")
     private LocalDateTime addedDate;
 
     @Column(name = "added_quantity")
@@ -21,7 +21,7 @@ public class Order extends BaseEntity {
     private int workedQuantity;
 
     @ManyToOne
-    private User orders;
+    private User user;
 
     public Order() {
     }
@@ -34,11 +34,27 @@ public class Order extends BaseEntity {
         this.addedDate = addedDate;
     }
 
-    public User getOrders() {
-        return orders;
+    public int getAddedQuantity() {
+        return addedQuantity;
     }
 
-    public void setOrders(User orders) {
-        this.orders = orders;
+    public void setAddedQuantity(int addedQuantity) {
+        this.addedQuantity = addedQuantity;
+    }
+
+    public int getWorkedQuantity() {
+        return workedQuantity;
+    }
+
+    public void setWorkedQuantity(int workedQuantity) {
+        this.workedQuantity = workedQuantity;
+    }
+
+    public User getUsers() {
+        return user;
+    }
+
+    public void setUsers(User users) {
+        this.user = users;
     }
 }
