@@ -32,8 +32,10 @@ public class SecurityConfiguration {
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                         .requestMatchers("/js/**", "/fonts/**", "/css/**", "/img/**")
                         .permitAll()
-                        .requestMatchers("/", "/sign_up", "/sign_in", "/earnings")
+                        .requestMatchers("/", "/sign_up", "/sign_in")
                         .permitAll()
+                        .requestMatchers("/earnings", "/dashboard")
+                        .authenticated()
                         .anyRequest().authenticated()
 
         ).formLogin(
@@ -42,7 +44,7 @@ public class SecurityConfiguration {
                             .loginPage("/sign_in")
                             .usernameParameter("email")
                             .passwordParameter("password")
-                            .defaultSuccessUrl("/", true)
+                            .defaultSuccessUrl("/dashboard", true)
                             .failureForwardUrl("/users/login-error");
                 }
         ).logout(

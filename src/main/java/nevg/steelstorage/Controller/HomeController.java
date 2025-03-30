@@ -9,6 +9,12 @@ public class HomeController {
 
     @GetMapping("/")
     public ModelAndView home() {
+        return new ModelAndView("sign-in");
+    }
+
+    @GetMapping("/dashboard")
+    public ModelAndView dashboard() {
         return new ModelAndView("index");
     }
+
 }
