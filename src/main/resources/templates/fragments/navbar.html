@@ -106,6 +106,16 @@
                     <input type="submit">
                 </form>
             </li>
+            <li class="sidebar-header">
+                <form>
+                    <div class="sidebar-link">
+                        <select class="form-select" id="select1">
+                            <option value="1">Български</option>
+                        </select>
+                        <label for="select1">ЕЗИК</label>
+                    </div>
+                </form>
+            </li>
         </ul>
 
         <div sec:authorize="isAuthenticated()"
@@ -120,5 +130,6 @@
                 </div>
             </div>
         </div>
+
     </div>
 </nav>
