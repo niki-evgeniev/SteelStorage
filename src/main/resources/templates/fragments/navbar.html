@@ -11,7 +11,8 @@
 
             <li class="sidebar-item active">
                 <a class="sidebar-link" th:href="@{/dashboard}">
-                    <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
+                    <i class="align-middle" data-feather="sliders"></i> <span class="align-middle"
+                th:text="#{nav_bar_dashboard}"></span>
                 </a>
             </li>
 
@@ -32,14 +33,20 @@
                 class="sidebar-item">
                 <a class="sidebar-link"
                    th:href="@{/sign_up}">
-                    <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Sign Up</span>
+                    <i class="align-middle"
+                       data-feather="user-plus"></i>
+                    <span class="align-middle"
+                    th:text="#{nav_bar_register}">Sign Up</span>
                 </a>
             </li>
 
             <li class="sidebar-item">
                 <a class="sidebar-link"
                    th:href="@{/earnings}">
-                    <i class="align-middle" data-feather="book"></i> <span class="align-middle">Earnings</span>
+                    <i class="align-middle"
+                       data-feather="book"></i>
+                    <span class="align-middle"
+                    th:text="#{nav_bar_earnings}">Earnings</span>
                 </a>
             </li>
 
@@ -47,74 +54,81 @@
                 Tools & Components
             </li>
 
-<!--            <li class="sidebar-item">-->
-<!--                <a class="sidebar-link" href="ui-buttons.html">-->
-<!--                    <i class="align-middle" data-feather="square"></i> <span class="align-middle">Buttons</span>-->
-<!--                </a>-->
-<!--            </li>-->
+            <!--            <li class="sidebar-item">-->
+            <!--                <a class="sidebar-link" href="ui-buttons.html">-->
+            <!--                    <i class="align-middle" data-feather="square"></i> <span class="align-middle">Buttons</span>-->
+            <!--                </a>-->
+            <!--            </li>-->
 
-<!--            <li class="sidebar-item">-->
-<!--                <a class="sidebar-link" href="ui-forms.html">-->
-<!--                    <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Forms</span>-->
-<!--                </a>-->
-<!--            </li>-->
+            <!--            <li class="sidebar-item">-->
+            <!--                <a class="sidebar-link" href="ui-forms.html">-->
+            <!--                    <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Forms</span>-->
+            <!--                </a>-->
+            <!--            </li>-->
 
-<!--            <li class="sidebar-item">-->
-<!--                <a class="sidebar-link" href="ui-cards.html">-->
-<!--                    <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Cards</span>-->
-<!--                </a>-->
-<!--            </li>-->
+            <!--            <li class="sidebar-item">-->
+            <!--                <a class="sidebar-link" href="ui-cards.html">-->
+            <!--                    <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Cards</span>-->
+            <!--                </a>-->
+            <!--            </li>-->
 
-<!--            <li class="sidebar-item">-->
-<!--                <a class="sidebar-link" href="ui-typography.html">-->
-<!--                    <i class="align-middle" data-feather="align-left"></i> <span class="align-middle">Typography</span>-->
-<!--                </a>-->
-<!--            </li>-->
+            <!--            <li class="sidebar-item">-->
+            <!--                <a class="sidebar-link" href="ui-typography.html">-->
+            <!--                    <i class="align-middle" data-feather="align-left"></i> <span class="align-middle">Typography</span>-->
+            <!--                </a>-->
+            <!--            </li>-->
 
-<!--            <li class="sidebar-item">-->
-<!--                <a class="sidebar-link" href="icons-feather.html">-->
-<!--                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Icons</span>-->
-<!--                </a>-->
-<!--            </li>-->
+            <!--            <li class="sidebar-item">-->
+            <!--                <a class="sidebar-link" href="icons-feather.html">-->
+            <!--                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Icons</span>-->
+            <!--                </a>-->
+            <!--            </li>-->
 
             <li class="sidebar-header">
                 Plugins & Addons
             </li>
 
-<!--            <li class="sidebar-item">-->
-<!--                <a class="sidebar-link" href="charts-chartjs.html">-->
-<!--                    <i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Charts</span>-->
-<!--                </a>-->
-<!--            </li>-->
+            <!--            <li class="sidebar-item">-->
+            <!--                <a class="sidebar-link" href="charts-chartjs.html">-->
+            <!--                    <i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Charts</span>-->
+            <!--                </a>-->
+            <!--            </li>-->
 
-<!--            <li class="sidebar-item">-->
-<!--                <a class="sidebar-link" href="maps-google.html">-->
-<!--                    <i class="align-middle" data-feather="map"></i> <span class="align-middle">Maps</span>-->
-<!--                </a>-->
-<!--            </li>-->
+            <!--            <li class="sidebar-item">-->
+            <!--                <a class="sidebar-link" href="maps-google.html">-->
+            <!--                    <i class="align-middle" data-feather="map"></i> <span class="align-middle">Maps</span>-->
+            <!--                </a>-->
+            <!--            </li>-->
             <li sec:authorize="isAuthenticated()"
                 class="sidebar-header">
                 LOGOUT
             </li>
             <li sec:authorize="isAuthenticated()"
                 class="sidebar-item">
-                <a href="#" class="sidebar-link" onclick="document.getElementById('logout-form').submit(); return false;">
+                <a href="#" class="sidebar-link"
+                   onclick="document.getElementById('logout-form').submit(); return false;">
                     <i class="align-middle" data-feather="log-out"></i>
                     <span class="align-middle">LOGOUT</span>
                 </a>
-                <form id="logout-form" th:method="POST" th:action="@{/users/logout}" style="display: none;">
+                <form id="logout-form" th:method="POST"
+                      th:action="@{/users/logout}"
+                      style="display: none;">
                     <input type="submit">
                 </form>
             </li>
             <li class="sidebar-header">
-                <form>
-                    <div class="sidebar-link">
-                        <select class="form-select" id="select1">
-                            <option value="1">Български</option>
+                <a href="#" class="sidebar-link">
+                    <form th:method="GET">
+                        <label class="text-white"
+                               for="lang">Language</label>
+                        <select id="lang"
+                                name="lang"
+                                onchange="this.form.submit()">
+                            <option value="en_US" th:selected="${#locale.toString() == 'en_US'}">English</option>
+                            <option value="bg_BG" th:selected="${#locale.toString() == 'bg_BG'}">Български</option>
                         </select>
-                        <label for="select1">ЕЗИК</label>
-                    </div>
-                </form>
+                    </form>
+                </a>
             </li>
         </ul>
 

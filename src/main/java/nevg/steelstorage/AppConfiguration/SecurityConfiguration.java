@@ -30,7 +30,8 @@ public class SecurityConfiguration {
         httpSecurity.authorizeHttpRequests(
                 authorizeRequest -> authorizeRequest
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                        .requestMatchers("/js/**", "/fonts/**", "/css/**", "/img/**")
+                        .requestMatchers("/js/**", "/fonts/**", "/css/**", "/img/**", "i18n", "/public/**"
+                        ,"/dashboard?lang=*")
                         .permitAll()
                         .requestMatchers("/", "/sign_up", "/sign_in")
                         .permitAll()
