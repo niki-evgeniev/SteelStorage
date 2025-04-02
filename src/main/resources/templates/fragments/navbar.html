@@ -117,18 +117,16 @@
                 </form>
             </li>
             <li class="sidebar-header">
-                <a href="#" class="sidebar-link">
                     <form th:method="GET">
                         <label class="text-white"
                                for="lang">Language</label>
                         <select id="lang"
                                 name="lang"
                                 onchange="this.form.submit()">
-                            <option value="en_US" th:selected="${#locale.toString() == 'en_US'}">English</option>
-                            <option value="bg_BG" th:selected="${#locale.toString() == 'bg_BG'}">Български</option>
+                            <option value="en" th:selected="${#locale.toString() == 'en'}">English</option>
+                            <option value="bg" th:selected="${#locale.toString() == 'bg'}">Български</option>
                         </select>
                     </form>
-                </a>
             </li>
         </ul>
 
