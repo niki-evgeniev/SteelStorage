@@ -31,7 +31,7 @@ public class SecurityConfiguration {
                 authorizeRequest -> authorizeRequest
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                         .requestMatchers("/js/**", "/fonts/**", "/css/**", "/img/**", "i18n", "/public/**"
-                        ,"/dashboard?lang=*")
+                        ,"/dashboard")
                         .permitAll()
                         .requestMatchers("/", "/sign_up", "/sign_in")
                         .permitAll()
@@ -45,8 +45,8 @@ public class SecurityConfiguration {
                             .loginPage("/sign_in")
                             .usernameParameter("email")
                             .passwordParameter("password")
-                            .defaultSuccessUrl("/dashboard", true)
-                            .failureForwardUrl("/users/login-error");
+                            .defaultSuccessUrl("/dashboard")
+                            .failureForwardUrl("/login-error");
                 }
         ).logout(
                 logout -> {
