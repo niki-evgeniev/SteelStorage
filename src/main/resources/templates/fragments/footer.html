@@ -22,6 +22,22 @@
                     <li class="list-inline-item">
                         <a class="text-muted" href="https://adminkit.io/" target="_blank">Terms</a>
                     </li>
+                    <li class="list-inline-item">
+                        <form th:method="GET">
+                            <label class="text-muted"
+                                   for="lang">Language</label>
+                            <select id="lang"
+                                    name="lang"
+                                    onchange="this.form.submit()">
+                                <option class="text-muted" value="en" th:selected="${#locale.toString() == 'en'}">
+                                    English
+                                </option>
+                                <option class="text-muted" value="bg" th:selected="${#locale.toString() == 'bg'}">
+                                    Български
+                                </option>
+                            </select>
+                        </form>
+                    </li>
                 </ul>
             </div>
         </div>
