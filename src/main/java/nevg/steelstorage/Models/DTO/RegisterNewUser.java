@@ -8,24 +8,24 @@ import nevg.steelstorage.validation.PasswordsMatch;
 @PasswordsMatch
 public class RegisterNewUser {
 
-    @NotEmpty(message = "First name cannot be empty!")
-    @Size(min = 3, max = 20, message = "First name length must be between 3 and 20 character!")
+    @NotEmpty(message = "{fist_name_not_empty}")
+    @Size(min = 3, max = 20, message = "{first_name_length}")
     private String firstName;
 
-    @NotEmpty(message = "Last name cannot be empty!")
-    @Size(min = 3, max = 20, message = "Last name must be between 3 and 20 character!")
+    @NotEmpty(message = "{last_name_length}")
+    @Size(min = 3, max = 20, message = "{last_name_not_empty}")
     private String lastName;
 
-    @NotEmpty(message = "Email cannot be empty!")
-    @Email(message = "Email is incorrect")
+    @NotEmpty(message = "{email_is_not_empty}")
+    @Email(message = "{email_is_incorrect}")
     private String email;
 
-    @NotEmpty(message = "Password cannot be empty!")
-    @Size(min = 2, max = 50, message = "Password length must be between 8 and 20 character!")
+    @NotEmpty(message = "{password_is_empty}")
+    @Size(min = 2, max = 50, message = "{password_length}")
     private String password;
 
-    @NotEmpty(message = "ConfirmPassword cannot be empty!")
-    @Size(min = 2, max = 50, message = "Password length must be between 8 and 20 character!")
+    @NotEmpty(message = "{confirm_password_is_empty}")
+    @Size(min = 2, max = 50, message = "{confirm_password_length}")
     private String confirmPassword;
 
     public RegisterNewUser() {
