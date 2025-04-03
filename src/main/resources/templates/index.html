@@ -18,6 +18,11 @@
             <div class="container-fluid p-0">
 
                 <h1 class="h3 mb-3"><strong>Analytics</strong> Dashboard</h1>
+                <h1 class="h3 mb-3">
+                    <strong th:text="#{dashboard_analytics}">Analytics</strong>
+                    <span th:text="#{dashboard}">Dashboard</span>
+                </h1>
+
 
                 <div class="row">
                     <div class="col-xl-8 col-xxl-7 d-flex">
@@ -28,7 +33,9 @@
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col mt-0">
-                                                    <h5 class="card-title">Калибровано &phi;28</h5>
+                                                    <h5 class="card-title"
+                                                        th:text="#{dashboard_calibrated_steel} + ' &phi;28'">Калибровано
+                                                        &phi;28</h5>
                                                 </div>
 
                                                 <div class="col-auto">
@@ -48,7 +55,8 @@
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col mt-0">
-                                                    <h5 class="card-title">Тръба &phi;73</h5>
+                                                    <h5 class="card-title"
+                                                        th:text="#{dashboard_pipe} +' &phi;73'">Pipe &phi;73</h5>
                                                 </div>
 
                                                 <div class="col-auto">
@@ -70,7 +78,9 @@
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col mt-0">
-                                                    <h5 class="card-title">Калибровано &phi;42</h5>
+                                                    <h5 class="card-title"
+                                                        th:text="#{dashboard_calibrated_steel} + ' &phi;42'">Калибровано
+                                                        &phi;42</h5>
                                                 </div>
 
                                                 <div class="col-auto">
@@ -90,7 +100,8 @@
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col mt-0">
-                                                    <h5 class="card-title">Тръба &phi;76</h5>
+                                                    <h5 class="card-title"
+                                                        th:text="#{dashboard_pipe} +' &phi;76'">Pipe &phi;76</h5>
                                                 </div>
 
                                                 <div class="col-auto">
@@ -165,17 +176,17 @@
                             </div>
                         </div>
                     </div>
-<!--                    <div class="col-12 col-md-12 col-xxl-6 d-flex order-3 order-xxl-2">-->
-<!--                        <div class="card flex-fill w-100">-->
-<!--                            <div class="card-header">-->
+                    <!--                    <div class="col-12 col-md-12 col-xxl-6 d-flex order-3 order-xxl-2">-->
+                    <!--                        <div class="card flex-fill w-100">-->
+                    <!--                            <div class="card-header">-->
 
-<!--                                <h5 class="card-title mb-0">Real-Time</h5>-->
-<!--                            </div>-->
-<!--                            <div class="card-body px-4">-->
-<!--                                <div id="world_map" style="height:350px;"></div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
+                    <!--                                <h5 class="card-title mb-0">Real-Time</h5>-->
+                    <!--                            </div>-->
+                    <!--                            <div class="card-body px-4">-->
+                    <!--                                <div id="world_map" style="height:350px;"></div>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
                     <div class="col-12 col-md-6 col-xxl-6 d-flex order-1 order-xxl-1">
                         <div class="card flex-fill">
                             <div class="card-header">
