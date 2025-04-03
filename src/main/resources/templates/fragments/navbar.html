@@ -12,13 +12,15 @@
             <li class="sidebar-item active">
                 <a class="sidebar-link" th:href="@{/dashboard}">
                     <i class="align-middle" data-feather="sliders"></i> <span class="align-middle"
-                th:text="#{nav_bar_dashboard}"></span>
+                                                                              th:text="#{nav_bar_dashboard}"></span>
                 </a>
             </li>
 
             <li class="sidebar-item">
                 <a class="sidebar-link" th:href="@{/dashboard}">
-                    <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
+                    <i class="align-middle" data-feather="user"></i>
+                    <span class="align-middle"
+                          th:text="#{nav_bar_profile}">Profile</span>
                 </a>
             </li>
 
@@ -29,14 +31,14 @@
                 </a>
             </li>
 
-            <li sec:authorize="!isAuthenticated()"
+            <li sec:authorize="isAuthenticated()"
                 class="sidebar-item">
                 <a class="sidebar-link"
                    th:href="@{/sign_up}">
                     <i class="align-middle"
                        data-feather="user-plus"></i>
                     <span class="align-middle"
-                    th:text="#{nav_bar_register}">Sign Up</span>
+                          th:text="#{nav_bar_register}">Sign Up</span>
                 </a>
             </li>
 
@@ -46,7 +48,7 @@
                     <i class="align-middle"
                        data-feather="book"></i>
                     <span class="align-middle"
-                    th:text="#{nav_bar_earnings}">Earnings</span>
+                          th:text="#{nav_bar_earnings}">Earnings</span>
                 </a>
             </li>
 
@@ -117,16 +119,16 @@
                 </form>
             </li>
             <li class="sidebar-header">
-                    <form th:method="GET">
-                        <label class="text-white"
-                               for="lang">Language</label>
-                        <select id="lang"
-                                name="lang"
-                                onchange="this.form.submit()">
-                            <option value="en" th:selected="${#locale.toString() == 'en'}">English</option>
-                            <option value="bg" th:selected="${#locale.toString() == 'bg'}">Български</option>
-                        </select>
-                    </form>
+                <form th:method="GET">
+                    <label class="text-white"
+                           for="lang">Language</label>
+                    <select id="lang"
+                            name="lang"
+                            onchange="this.form.submit()">
+                        <option value="en" th:selected="${#locale.toString() == 'en'}">English</option>
+                        <option value="bg" th:selected="${#locale.toString() == 'bg'}">Български</option>
+                    </select>
+                </form>
             </li>
         </ul>
 
