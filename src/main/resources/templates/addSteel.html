@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <title>Steel Earnings</title>
+    <th:block th:replace="~{fragments/head}"></th:block>
+</head>
+
+<body>
+<div class="wrapper">
+    <th:block th:replace="~{fragments/navbar}"></th:block>
+    <div class="main">
+        <th:block th:replace="~{fragments/topbar}"></th:block>
+        <main class="content">
+            <div class="container-fluid p-0">
+                <div class="mb-3">
+                    <h1 class="h3 d-inline align-middle"
+                        th:text="#{nav_bar_add_steel}">Consumables</h1>
+                    <a class="badge bg-dark text-white ms-2" href="/upgrade-to-pro.html">
+                        Get more form examples
+                    </a>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">General Form Elements</h5>
+
+                                <!-- General Form Elements -->
+                                <form>
+                                    <div class="row mb-3">
+                                        <label for="inputNumber" class="col-sm-2 col-form-label"
+                                        th:text="#{add_steel_number_of_cutter}">Number of cutter pieces</label>
+                                        <div class="col-sm-10">
+                                            <input type="number"
+                                                   class="form-control"
+                                                   th:placeholder="#{add_steel_placeholder_number_of_cutter}">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label class="col-sm-2 col-form-label"
+                                               th:text="#{add_steel_steel_size}">Steel Size</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected
+                                                th:text="#{add_steel_select_steel_diameter}">Select Steel Diameter</option>
+                                                <option th:each="size : ${diameters}"
+                                                        th:value="${size.steelSize}"
+                                                th:text="'&phi; ' + ${size.steelSize}"></option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <label class="col-sm-2 col-form-label">Submit Button</label>
+                                        <div class="col-sm-10">
+                                            <button type="submit" class="btn btn-primary"
+                                            th:text="#{add_steel_submit_button}"></button>
+                                        </div>
+                                    </div>
+                                </form><!-- End General Form Elements -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <th:block th:replace="~{fragments/footer}"></th:block>
+    </div>
+</div>
+
+<script src="/js/app.js"></script>
+
+</body>
+
+</html>
