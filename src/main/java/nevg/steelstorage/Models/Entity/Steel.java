@@ -1,17 +1,16 @@
 package nevg.steelstorage.Models.Entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import nevg.steelstorage.Models.Enums.SteelType;
 
 import java.time.LocalDateTime;
 
 @Table
 @Entity(name = "steel")
-public class Steel extends BaseEntity{
+public class Steel extends BaseEntity {
 
-    @Column(name = "steel_type")
-    private String steelType;
+    @Column(name = "steel_code")
+    private String steelCode;
 
     @Column(name = "steel_size", nullable = false)
     private Integer steelSize;
@@ -19,26 +18,28 @@ public class Steel extends BaseEntity{
     @Column(name = "count")
     private Integer count;
 
+    @Column(name = "total_count")
+    private Integer totalCount;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "steel_type")
+    private SteelType steelType;
+
+    @Column(name = "added_date", columnDefinition = "DATETIME(0)")
+    private LocalDateTime addedDate;
+
     @Column(name = "last_modified", columnDefinition = "DATETIME(0)")
     private LocalDateTime lastModified;
 
     public Steel() {
     }
 
-    public String getSteelType() {
-        return steelType;
+    public LocalDateTime getAddedDate() {
+        return addedDate;
     }
 
-    public void setSteelType(String steelType) {
-        this.steelType = steelType;
-    }
-
-    public Integer getSteelSize() {
-        return steelSize;
-    }
-
-    public void setSteelSize(Integer steelSize) {
-        this.steelSize = steelSize;
+    public void setAddedDate(LocalDateTime addedDate) {
+        this.addedDate = addedDate;
     }
 
     public Integer getCount() {
@@ -49,11 +50,43 @@ public class Steel extends BaseEntity{
         this.count = count;
     }
 
+    public Integer getTotalCount() {
+        return totalCount;
+    }
+
+    public void setTotalCount(Integer totalCount) {
+        this.totalCount = totalCount;
+    }
+
     public LocalDateTime getLastModified() {
         return lastModified;
     }
 
     public void setLastModified(LocalDateTime lastModified) {
         this.lastModified = lastModified;
+    }
+
+    public String getSteelCode() {
+        return steelCode;
+    }
+
+    public void setSteelCode(String steelCode) {
+        this.steelCode = steelCode;
+    }
+
+    public Integer getSteelSize() {
+        return steelSize;
+    }
+
+    public void setSteelSize(Integer steelSize) {
+        this.steelSize = steelSize;
+    }
+
+    public SteelType getSteelType() {
+        return steelType;
+    }
+
+    public void setSteelType(SteelType steelType) {
+        this.steelType = steelType;
     }
 }
