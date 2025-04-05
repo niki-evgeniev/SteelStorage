@@ -26,8 +26,6 @@ public class DashboardController {
       ModelAndView modelAndView =  new ModelAndView("index");
       modelAndView.addObject("material", steelStorageListDTO);
 
-        System.out.println();
-
         return modelAndView;
     }
 }
