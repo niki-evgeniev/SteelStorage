@@ -1,7 +1,7 @@
 package nevg.steelstorage.Service.Impl;
 
+import nevg.steelstorage.Models.DTO.Steel.GetDiameterDTO;
 import nevg.steelstorage.Models.DTO.Steel.SteelStorageDTO;
-import nevg.steelstorage.Models.DTO.Steel.SteelStorageListDTO;
 import nevg.steelstorage.Models.Entity.Steel;
 import nevg.steelstorage.Models.Enums.SteelType;
 import nevg.steelstorage.Repository.SteelRepository;
@@ -48,15 +48,27 @@ public class SteelServiceImpl implements SteelService {
 
     @Override
     public List<SteelStorageDTO> getAllSteelMaterial() {
-        List<Steel> all = steelRepository.findAll();
-        List<SteelStorageDTO> steelStorageDTOS = all.stream()
+        List<Steel> allSteel = steelRepository.findAll();
+        List<SteelStorageDTO> steelStorageDTOS = allSteel
+                .stream()
                 .map(steel -> {
                     SteelStorageDTO ss = new SteelStorageDTO();
                     return modelMapper.map(steel, SteelStorageDTO.class);
                 })
                 .sorted(Comparator.comparing(SteelStorageDTO::getSteelSize))
                 .collect(Collectors.toList());
-
         return steelStorageDTOS;
+    }
+
+    @Override
+    public List<GetDiameterDTO> getDiameterForAllSteel() {
+        List<Steel> allSteel = steelRepository.findAll();
+        List<GetDiameterDTO> diameterDTOS = allSteel
+                .stream()
+                .map(steel -> {
+                    return modelMapper.map(steel, GetDiameterDTO.class);
+                }).sorted(Comparator.comparing(GetDiameterDTO::getSteelSize))
+                .collect(Collectors.toList());
+        return diameterDTOS;
     }
 }
