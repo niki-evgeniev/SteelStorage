@@ -9,8 +9,11 @@ import jakarta.persistence.Table;
 @Entity(name = "machines")
 public class Machine extends BaseEntity {
 
-    @Column(name = "machine_name")
-    private String machineName;
+    @Column(name = "brand")
+    private String brand;
+
+    @Column(name = "model")
+    private String model;
 
     @Column(name = "serial_number", unique = true)
     private String serialNumber;
@@ -21,20 +24,12 @@ public class Machine extends BaseEntity {
     public Machine() {
     }
 
-    public String getMachineName() {
-        return machineName;
+    public String getBrand() {
+        return brand;
     }
 
-    public void setMachineName(String machineName) {
-        this.machineName = machineName;
-    }
-
-    public String getSerialNumber() {
-        return serialNumber;
-    }
-
-    public void setSerialNumber(String serialNumber) {
-        this.serialNumber = serialNumber;
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
     public User getMachineList() {
@@ -43,5 +38,21 @@ public class Machine extends BaseEntity {
 
     public void setMachineList(User machineList) {
         this.machineList = machineList;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public String getSerialNumber() {
+        return serialNumber;
+    }
+
+    public void setSerialNumber(String serialNumber) {
+        this.serialNumber = serialNumber;
     }
 }
