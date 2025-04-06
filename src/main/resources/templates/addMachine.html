@@ -79,7 +79,8 @@
                                                  th:if="${#fields.hasErrors('serialNumber')}"
                                                  th:errors="*{serialNumber}">Please, enter your name!
                                             </div>
-                                            <p th:if="${machineErr}" class="errors alert alert-danger"
+                                            <br>
+                                            <p th:if="${machineErr}" class="text-primary text-center"
                                             th:text="#{machine_exist}"></p>
                                         </div>
                                     </div>
