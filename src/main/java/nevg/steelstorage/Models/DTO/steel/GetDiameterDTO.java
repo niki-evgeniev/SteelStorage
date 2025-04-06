@@ -1,4 +1,4 @@
-package nevg.steelstorage.Models.DTO.Steel;
+package nevg.steelstorage.Models.DTO.steel;
 
 public class GetDiameterDTO {
 

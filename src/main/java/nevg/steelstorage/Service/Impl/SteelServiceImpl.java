@@ -1,7 +1,7 @@
 package nevg.steelstorage.Service.Impl;
 
-import nevg.steelstorage.Models.DTO.Steel.GetDiameterDTO;
-import nevg.steelstorage.Models.DTO.Steel.SteelStorageDTO;
+import nevg.steelstorage.Models.DTO.steel.GetDiameterDTO;
+import nevg.steelstorage.Models.DTO.steel.SteelStorageDTO;
 import nevg.steelstorage.Models.Entity.Steel;
 import nevg.steelstorage.Models.Enums.SteelType;
 import nevg.steelstorage.Repository.SteelRepository;

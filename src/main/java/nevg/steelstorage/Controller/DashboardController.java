@@ -1,7 +1,6 @@
 package nevg.steelstorage.Controller;
 
-import nevg.steelstorage.Models.DTO.Steel.SteelStorageDTO;
-import nevg.steelstorage.Models.DTO.Steel.SteelStorageListDTO;
+import nevg.steelstorage.Models.DTO.steel.SteelStorageDTO;
 import nevg.steelstorage.Service.SteelService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

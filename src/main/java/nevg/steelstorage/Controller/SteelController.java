@@ -1,7 +1,7 @@
 package nevg.steelstorage.Controller;
 
 
-import nevg.steelstorage.Models.DTO.Steel.GetDiameterDTO;
+import nevg.steelstorage.Models.DTO.steel.GetDiameterDTO;
 import nevg.steelstorage.Service.SteelService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
