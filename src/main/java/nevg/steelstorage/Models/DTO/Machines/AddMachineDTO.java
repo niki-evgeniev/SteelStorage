@@ -1,4 +1,4 @@
-package nevg.steelstorage.Models.DTO.machine;
+package nevg.steelstorage.Models.DTO.Machines;
 
 import jakarta.validation.constraints.NotEmpty;
 

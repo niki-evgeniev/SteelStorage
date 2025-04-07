@@ -1,4 +1,4 @@
-package nevg.steelstorage.Models.DTO.steel;
+package nevg.steelstorage.Models.DTO.Steel;
 
 public class SteelStorageDTO {
 

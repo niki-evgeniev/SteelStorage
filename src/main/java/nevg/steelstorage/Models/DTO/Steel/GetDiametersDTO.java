@@ -1,10 +1,10 @@
-package nevg.steelstorage.Models.DTO.steel;
+package nevg.steelstorage.Models.DTO.Steel;
 
-public class GetDiameterDTO {
+public class GetDiametersDTO {
 
     private String steelSize;
 
-    public GetDiameterDTO() {
+    public GetDiametersDTO() {
     }
 
     public String getSteelSize() {

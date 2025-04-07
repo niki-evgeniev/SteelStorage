@@ -8,8 +8,8 @@ import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 
 @Table
-@Entity(name = "orders")
-public class Order extends BaseEntity {
+@Entity(name = "earnings")
+public class Earnings extends BaseEntity {
 
     @Column(name = "added_date", columnDefinition = "DATETIME(0)")
     private LocalDateTime addedDate;
@@ -23,7 +23,10 @@ public class Order extends BaseEntity {
     @ManyToOne
     private User user;
 
-    public Order() {
+    @ManyToOne
+    private Machine machine;
+
+    public Earnings() {
     }
 
     public LocalDateTime getAddedDate() {
@@ -56,5 +59,21 @@ public class Order extends BaseEntity {
 
     public void setUsers(User users) {
         this.user = users;
+    }
+
+    public Machine getMachine() {
+        return machine;
+    }
+
+    public void setMachine(Machine machine) {
+        this.machine = machine;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
