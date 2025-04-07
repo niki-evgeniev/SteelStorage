@@ -1,7 +1,7 @@
 package nevg.steelstorage.Service;
 
-import nevg.steelstorage.Models.DTO.steel.GetDiameterDTO;
-import nevg.steelstorage.Models.DTO.steel.SteelStorageDTO;
+import nevg.steelstorage.Models.DTO.Steel.GetDiametersDTO;
+import nevg.steelstorage.Models.DTO.Steel.SteelStorageDTO;
 
 import java.util.List;
 
@@ -10,5 +10,5 @@ public interface SteelService {
 
     List<SteelStorageDTO> getAllSteelMaterial();
 
-    List<GetDiameterDTO> getDiameterForAllSteel();
+    List<GetDiametersDTO> getDiameterForAllSteel();
 }

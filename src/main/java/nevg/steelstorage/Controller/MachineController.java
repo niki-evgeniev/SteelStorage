@@ -1,7 +1,7 @@
 package nevg.steelstorage.Controller;
 
 import jakarta.validation.Valid;
-import nevg.steelstorage.Models.DTO.machine.AddMachineDTO;
+import nevg.steelstorage.Models.DTO.Machines.AddMachineDTO;
 import nevg.steelstorage.Service.MachineService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;

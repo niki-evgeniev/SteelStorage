@@ -9,5 +9,5 @@ import java.util.UUID;
 
 @Repository
 public interface SteelRepository extends JpaRepository<Steel, UUID> {
-
+    Optional<Steel> findBySteelSize(int steelDiameter);
 }

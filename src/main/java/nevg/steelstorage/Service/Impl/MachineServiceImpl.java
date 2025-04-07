@@ -1,6 +1,7 @@
 package nevg.steelstorage.Service.Impl;
 
-import nevg.steelstorage.Models.DTO.machine.AddMachineDTO;
+import nevg.steelstorage.Models.DTO.Machines.AddMachineDTO;
+import nevg.steelstorage.Models.DTO.Machines.GetMachineModelDTO;
 import nevg.steelstorage.Models.Entity.Machine;
 import nevg.steelstorage.Models.Entity.User;
 import nevg.steelstorage.Repository.MachineRepository;
@@ -10,6 +11,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -43,5 +46,19 @@ public class MachineServiceImpl implements MachineService {
             machineRepository.save(newMachine);
         }
         return true;
+    }
+
+    @Override
+    public List<GetMachineModelDTO> getMachineBrandsAndModel() {
+
+        List<Machine> all = machineRepository.findAll();
+        List<GetMachineModelDTO> machineBrandAndModel = all
+                .stream()
+                .map(machine -> {
+                   return modelMapper.map(machine, GetMachineModelDTO.class);
+                }).sorted(Comparator.comparing(GetMachineModelDTO::getBrand))
+                .toList();
+
+        return machineBrandAndModel;
     }
 }

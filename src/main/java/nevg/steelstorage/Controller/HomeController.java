@@ -15,7 +15,7 @@ public class HomeController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         if (authentication == null || !authentication.isAuthenticated() || authentication instanceof AnonymousAuthenticationToken) {
-            return new ModelAndView("sign-in");
+            return new ModelAndView("redirect:signIn");
         }
         return new ModelAndView("index");
     }

@@ -7,8 +7,8 @@ import nevg.steelstorage.Models.DTO.RegisterNewUser;
 import java.util.List;
 
 public interface UserService {
-    void addAdminProfile();
 
+    void addAdminProfile();
 
     boolean checkEmailIsFree(String email);
 

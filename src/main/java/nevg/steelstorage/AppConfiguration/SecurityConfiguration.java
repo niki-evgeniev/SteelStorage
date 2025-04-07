@@ -32,7 +32,7 @@ public class SecurityConfiguration {
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                         .requestMatchers("/js/**", "/fonts/**", "/css/**", "/img/**", "i18n", "/public/**")
                         .permitAll()
-                        .requestMatchers("/", "/sign_in")
+                        .requestMatchers("/", "/sign_in", "/restart")
                         .permitAll()
                         .requestMatchers("/earnings")
                         .authenticated()

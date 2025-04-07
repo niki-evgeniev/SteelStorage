@@ -23,13 +23,9 @@ public class UserController {
 
     @GetMapping("/sign_in")
     public ModelAndView signIn() {
-        return new ModelAndView("sign-in");
+        return new ModelAndView("signIn");
     }
 
-    @GetMapping("/sign_up")
-    public ModelAndView signUp() {
-        return new ModelAndView("sign-up");
-    }
 
     @PostMapping("/sign_up")
     public ModelAndView sign_up(@Valid RegisterNewUser registerNewUser,
@@ -52,7 +48,7 @@ public class UserController {
 
     @RequestMapping("/login-error")
     public ModelAndView errorLogin() {
-        ModelAndView modelAndView = new ModelAndView("sign-in");
+        ModelAndView modelAndView = new ModelAndView("signIn");
         modelAndView.addObject("bad_credentials", true);
         System.out.println("ERROR LOGIN");
         return modelAndView;
