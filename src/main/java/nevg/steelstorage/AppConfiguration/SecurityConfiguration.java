@@ -30,7 +30,7 @@ public class SecurityConfiguration {
         httpSecurity.authorizeHttpRequests(
                 authorizeRequest -> authorizeRequest
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                        .requestMatchers("/js/**", "/fonts/**", "/css/**", "/img/**", "i18n", "/public/**")
+                        .requestMatchers("/js/**", "/fonts/**", "/css/**", "/img/**")
                         .permitAll()
                         .requestMatchers("/", "/sign_in", "/restart")
                         .permitAll()
@@ -44,7 +44,7 @@ public class SecurityConfiguration {
                             .loginPage("/sign_in")
                             .usernameParameter("email")
                             .passwordParameter("password")
-                            .defaultSuccessUrl("/dashboard")
+                            .defaultSuccessUrl("/dashboard", true)
                             .failureForwardUrl("/login-error");
                 }
         ).logout(
