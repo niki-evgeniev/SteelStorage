@@ -30,11 +30,11 @@
 
                                 <!-- General Form Elements -->
                                 <form th:method="POST"
-                                th:action="@{/add_machine}"
-                                th:object="${addMachineDTO}">
+                                      th:action="@{/add_machine}"
+                                      th:object="${addMachineDTO}">
                                     <div class="row mb-3">
                                         <label for="machine_brand" class="col-sm-2 col-form-label"
-                                        th:text="#{add_machine_brand}">Number of cutter pieces</label>
+                                               th:text="#{add_machine_brand}">Number of cutter pieces</label>
                                         <div class="col-sm-10">
                                             <input th:field="*{brand}"
                                                    type="text"
@@ -70,7 +70,7 @@
                                                th:text="#{add_machine_serial_number}">Number of cutter pieces</label>
                                         <div class="col-sm-10">
                                             <input th:field="*{serialNumber}"
-                                                    type="text"
+                                                   type="text"
                                                    class="form-control"
                                                    id="machineSerialnumber"
                                                    name="machineSerialnumber"
@@ -81,7 +81,7 @@
                                             </div>
                                             <br>
                                             <p th:if="${machineErr}" class="text-primary text-center"
-                                            th:text="#{machine_exist}"></p>
+                                               th:text="#{machine_exist}"></p>
                                         </div>
                                     </div>
 
@@ -89,7 +89,7 @@
                                         <label class="col-sm-2 col-form-label ">Submit Button</label>
                                         <div class="col-sm-10 text-center">
                                             <button type="submit" class="btn btn-primary"
-                                            th:text="#{add_steel_submit_button}"></button>
+                                                    th:text="#{add_steel_submit_button}"></button>
                                         </div>
                                     </div>
                                 </form><!-- End General Form Elements -->

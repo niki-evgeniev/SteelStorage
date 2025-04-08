@@ -32,7 +32,7 @@
                                 <form>
                                     <div class="row mb-3">
                                         <label for="inputNumber" class="col-sm-2 col-form-label"
-                                        th:text="#{add_steel_number_of_cutter}">Number of cutter pieces</label>
+                                               th:text="#{add_steel_number_of_cutter}">Number of cutter pieces</label>
                                         <div class="col-sm-10">
                                             <input type="number"
                                                    class="form-control"
@@ -45,7 +45,9 @@
                                         <div class="col-sm-10">
                                             <select class="form-select" aria-label="Default select example">
                                                 <option selected
-                                                th:text="#{add_steel_select_steel_diameter}">Select Steel Diameter</option>
+                                                        th:text="#{add_steel_select_steel_diameter}">Select Steel
+                                                    Diameter
+                                                </option>
                                                 <option th:each="size : ${diameters}"
                                                         th:value="${size.steelSize}"
                                                         th:text="'&phi; ' + ${size.steelSize}"></option>
@@ -58,7 +60,7 @@
                                         <label class="col-sm-2 col-form-label">Submit Button</label>
                                         <div class="col-sm-10 text-center">
                                             <button type="submit" class="btn btn-primary"
-                                            th:text="#{add_steel_submit_button}"></button>
+                                                    th:text="#{add_steel_submit_button}"></button>
                                         </div>
                                     </div>
                                 </form><!-- End General Form Elements -->
