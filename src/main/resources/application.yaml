@@ -1,7 +1,7 @@
 spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-#    url: "jdbc:mysql://192.168.0.120:3306/reservoirAPI?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=Europe/Sofia"
+#    url: "jdbc:mysql://192.168.0.120:3306/steelStorage?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=Europe/Sofia"
 #    username: test
 #    password: 12345
     url: "jdbc:mysql://localhost:3306/steelStorage?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=Europe/Sofia"
@@ -26,27 +26,16 @@ spring:
       hibernate:
         format_sql: true
     defer-datasource-initialization: true
-  mail:
-    host: smtp.gmail.com
-    port: 587
-    username:  your_email@gmail.com
-    password: your_password
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
-  thymeleaf: # Thymeleaf
-    cache: false
-    mode: HTML
-    encoding: UTF-8
-    prefix: file:src/main/resources/templates/
-  web:
-    resources:
-      static-locations: file:src/main/resources/static/
-      cache:
-        period: 0
+#  thymeleaf: # Thymeleaf
+#    cache: false
+#    mode: HTML
+#    encoding: UTF-8
+#    prefix: file:src/main/resources/templates/
+#  web:
+#    resources:
+#      static-locations: file:src/main/resources/static/
+#      cache:
+#        period: 0
 
 steel storage:
   remember.me.key: 1412324
@@ -60,4 +49,4 @@ logging:
 
 
 server:
-  port: 5003
+  port: 8182
