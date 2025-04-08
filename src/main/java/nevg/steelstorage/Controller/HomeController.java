@@ -17,7 +17,7 @@ public class HomeController {
         if (authentication == null || !authentication.isAuthenticated() || authentication instanceof AnonymousAuthenticationToken) {
             return new ModelAndView("redirect:signIn");
         }
-        return new ModelAndView("index");
+        return new ModelAndView("redirect:dashboard");
     }
 
 }
