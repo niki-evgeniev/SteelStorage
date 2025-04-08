@@ -25,7 +25,8 @@
                     <div class="col-lg-10">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">General Form Elements</h5>
+                                <h5 class="card-title"
+                                    th:text="#{earnings_title}">General Form Elements</h5>
 
                                 <!-- General Form Elements -->
                                 <form th:method="POST"
@@ -33,13 +34,15 @@
                                       th:object="${addEarningsDTO}">
                                     <div class="row mb-3">
                                         <label for="numberOfSteel"
-                                               class="col-sm-2 col-form-label">Number</label>
+                                               class="col-sm-2 col-form-label"
+                                               th:text="#{earnings_number}">Number</label>
                                         <div class="col-sm-10">
                                             <input th:field="*{numberOfSteel}"
-                                                    type="number"
+                                                   type="number"
                                                    id="numberOfSteel"
                                                    name="numberOfSteel"
-                                                   class="form-control">
+                                                   class="form-control"
+                                                   th:placeholder="#{earnings_placeholder_number}">
                                             <div class="text-primary text-center"
                                                  th:if="${#fields.hasErrors('numberOfSteel')}"
                                                  th:errors="*{numberOfSteel}">Please, enter your name!
@@ -48,13 +51,15 @@
                                     </div>
                                     <div class="row mb-3">
                                         <label for="createDate"
-                                               class="col-sm-2 col-form-label">Create date</label>
+                                               class="col-sm-2 col-form-label"
+                                               th:text="#{earnings_date}">Create date</label>
                                         <div class="col-sm-10">
                                             <input th:field="*{timeAdd}"
-                                                    type="datetime-local"
-                                                    name="createDate"
-                                                    id="createDate"
-                                                    class="form-control">
+                                                   type="datetime-local"
+                                                   name="createDate"
+                                                   id="createDate"
+                                                   class="form-control"
+                                                   th:placeholder="#{earnings_placeholder_date}">
                                             <div class="text-primary text-center"
                                                  th:if="${#fields.hasErrors('timeAdd')}"
                                                  th:errors="*{timeAdd}">Please, enter your name!
@@ -63,13 +68,15 @@
                                     </div>
                                     <div class="row mb-3">
                                         <label for="description"
-                                               class="col-sm-2 col-form-label">Description</label>
+                                               class="col-sm-2 col-form-label"
+                                               th:text="#{earnings_description}">Description</label>
                                         <div class="col-sm-10">
                                             <textarea th:field="*{description}"
-                                                    name="description"
-                                                    th:name="description"
-                                                    class="form-control"
-                                                    style="height: 100px"></textarea>
+                                                      name="description"
+                                                      th:name="description"
+                                                      class="form-control"
+                                                      style="height: 100px"
+                                                      th:placeholder="#{earnings_placeholder_description}"></textarea>
                                         </div>
                                         <div class="text-primary text-center"
                                              th:if="${#fields.hasErrors('description')}"
@@ -77,7 +84,8 @@
                                         </div>
                                     </div>
                                     <div class="row mb-3">
-                                        <label class="col-sm-2 col-form-label">Steel</label>
+                                        <label class="col-sm-2 col-form-label"
+                                               th:text="#{earnings_steel}">Steel</label>
                                         <div class="col-sm-10">
                                             <select th:field="*{diameter}"
                                                     id="diameter"
@@ -96,17 +104,21 @@
                                         </div>
                                     </div>
                                     <div class="row mb-3">
-                                        <label class="col-sm-2 col-form-label">Machines</label>
+                                        <label class="col-sm-2 col-form-label"
+                                               th:text="#{earnings_machine}">Machines</label>
                                         <div class="col-sm-10">
                                             <select th:field="*{machine}"
                                                     class="form-select"
                                                     aria-label="Default select example">
                                                 <option selected
-                                                value="Select Machine">Select Machine</option>
+                                                        th:text="#{earnings_value_machine}"
+                                                        th:value="#{earnings_value_machine}">Select Machine2
+                                                </option>
                                                 <option value="1"
                                                         th:each="machine : ${machines}"
                                                         th:value="${machine.brand} + ' ' + ${machine.model}"
-                                                        th:text="${machine.brand} + ' ' + ${machine.model}">HAAS</option>
+                                                        th:text="${machine.brand} + ' ' + ${machine.model}">HAAS
+                                                </option>
                                             </select>
                                         </div>
                                     </div>
