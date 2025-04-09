@@ -15,6 +15,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -42,8 +43,13 @@ public class EarningsServiceImpl implements EarningsService {
     public boolean addEarning(AddEarningsDTO addEarningsDTO, UserDetails userDetails) {
         Earnings earnings = new Earnings();
         String[] machine = addEarningsDTO.getMachine().split("\\s+");
-        String machineBrand = machine[0];
-        Optional<Machine> machineByBrand = machineRepository.findByBrand(machineBrand);
+        String machineModel = machine[1];
+//        Optional<Machine> machineByBrand = machineRepository.findByBrand(machineModel);
+//        Optional<Machine> byModelAndCounting = machineRepository.findByModelAndCounting(machineModel);
+//        Optional<Machine> machineByBrand = machineRepository.findByModel(machineModel);
+
+        Optional<Machine> machineByBrand = machineRepository.findOneByModel(machineModel);
+
         Optional<User> userByEmail = userRepository.findByEmail(userDetails.getUsername());
 
         earnings.setAddedDate(addEarningsDTO.getTimeAdd());
