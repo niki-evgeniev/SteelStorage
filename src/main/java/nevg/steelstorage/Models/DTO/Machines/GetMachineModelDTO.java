@@ -2,10 +2,21 @@ package nevg.steelstorage.Models.DTO.Machines;
 
 public class GetMachineModelDTO {
 
+    private String uuid;
+
     private String brand;
+
     private String model;
 
     public GetMachineModelDTO() {
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public String getBrand() {
