@@ -36,11 +36,18 @@ public class MachineServiceImpl implements MachineService {
         if (bySerialNumber.isPresent()) {
             return false;
         }
+        String machineModel = addMachineDTO.getModel();
+        Optional<Machine> oneByModel = machineRepository.findOneByModel(machineModel);
+        if (oneByModel.isPresent()) {
+            List<Machine> byModel = machineRepository.findByModel(machineModel);
+            int size = byModel.size();
+            addMachineDTO.setModel(oneByModel.get().getModel() + " " + size);
+        }
 
         Machine newMachine = new Machine();
         newMachine = modelMapper.map(addMachineDTO, Machine.class);
         String username = userDetails.getUsername();
-        Optional<User> findUserAddMachine = userRepository.findByEmail(userDetails.getUsername());
+        Optional<User> findUserAddMachine = userRepository.findByEmail(username);
         if (findUserAddMachine.isPresent()) {
             newMachine.setMachineList(findUserAddMachine.get());
             machineRepository.save(newMachine);
@@ -55,7 +62,7 @@ public class MachineServiceImpl implements MachineService {
         List<GetMachineModelDTO> machineBrandAndModel = all
                 .stream()
                 .map(machine -> {
-                   return modelMapper.map(machine, GetMachineModelDTO.class);
+                    return modelMapper.map(machine, GetMachineModelDTO.class);
                 }).sorted(Comparator.comparing(GetMachineModelDTO::getBrand))
                 .toList();
 
