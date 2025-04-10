@@ -38,11 +38,8 @@ public class MachineServiceImpl implements MachineService {
         }
         String machineModel = addMachineDTO.getModel();
         Optional<Machine> oneByModel = machineRepository.findOneByModel(machineModel);
-        if (oneByModel.isPresent()) {
-            List<Machine> byModel = machineRepository.findByModel(machineModel);
-            int size = byModel.size();
-            addMachineDTO.setModel(oneByModel.get().getModel() + " " + size);
-        }
+
+        checkModelIsExistInDb(addMachineDTO, oneByModel);
 
         Machine newMachine = new Machine();
         newMachine = modelMapper.map(addMachineDTO, Machine.class);
@@ -53,6 +50,18 @@ public class MachineServiceImpl implements MachineService {
             machineRepository.save(newMachine);
         }
         return true;
+    }
+
+    private void checkModelIsExistInDb(AddMachineDTO addMachineDTO, Optional<Machine> oneByModel) {
+        if (oneByModel.isPresent()) {
+            List<Machine> allByModelContains = machineRepository.findAllByModelContains(oneByModel.get().getModel());
+            int count = allByModelContains.size() + 1;
+            String countName = String.valueOf(count);
+            String name = oneByModel.get().getModel() + " "  + countName;
+            addMachineDTO.setModel(name);
+            System.out.println("Machine with name exist : " + oneByModel.get().getModel() +
+                    "Name changed to " + name);
+        }
     }
 
     @Override
