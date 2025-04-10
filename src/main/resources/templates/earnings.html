@@ -105,19 +105,19 @@
                                     </div>
                                     <div class="row mb-3">
                                         <label class="col-sm-2 col-form-label"
-                                               th:text="#{earnings_machine}">Machines</label>
+                                               th:text="#{earnings_machine}"></label>
                                         <div class="col-sm-10">
                                             <select th:field="*{machine}"
                                                     class="form-select"
                                                     aria-label="Default select example">
                                                 <option selected
                                                         th:text="#{earnings_value_machine}"
-                                                        th:value="#{earnings_value_machine}">Select Machine2
+                                                        th:value="#{earnings_value_machine}">
                                                 </option>
                                                 <option value="1"
                                                         th:each="machine : ${machines}"
                                                         th:value="${machine.brand} + ' ' + ${machine.model}"
-                                                        th:text="${machine.brand} + ' ' + ${machine.model}">HAAS
+                                                        th:text="${machine.brand} + ' ' + ${machine.model}">
                                                 </option>
                                             </select>
                                         </div>
@@ -125,7 +125,9 @@
                                     <div class="row mb-3">
                                         <label class="col-sm-2 col-form-label">Submit Button</label>
                                         <div class="col-sm-10 text-center">
-                                            <button type="submit" class="btn btn-primary">Submit Form</button>
+                                            <button type="submit"
+                                                    class="btn btn-primary"
+                                                    >Submit Form</button>
                                         </div>
                                     </div>
                                 </form><!-- End General Form Elements -->
