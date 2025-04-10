@@ -19,4 +19,6 @@ public interface MachineRepository extends JpaRepository<Machine, UUID> {
 
     List<Machine> findByModel(String model);
 
+    List<Machine> findAllByModelContains(String model);
+
 }
