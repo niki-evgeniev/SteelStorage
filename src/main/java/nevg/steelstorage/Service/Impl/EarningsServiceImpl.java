@@ -43,12 +43,19 @@ public class EarningsServiceImpl implements EarningsService {
     public boolean addEarning(AddEarningsDTO addEarningsDTO, UserDetails userDetails) {
         Earnings earnings = new Earnings();
         String[] machine = addEarningsDTO.getMachine().split("\\s+");
-        String machineModel = machine[1];
+        int length = machine.length;
+        String testModelName = "";
+
+        for (int i = 1; i < length; i++) {
+            testModelName = testModelName + " " + machine[i];
+        }
+
+//        String machineModel = machine[1];
 //        Optional<Machine> machineByBrand = machineRepository.findByBrand(machineModel);
 //        Optional<Machine> byModelAndCounting = machineRepository.findByModelAndCounting(machineModel);
 //        Optional<Machine> machineByBrand = machineRepository.findByModel(machineModel);
 
-        Optional<Machine> machineByBrand = machineRepository.findOneByModel(machineModel);
+        Optional<Machine> machineByBrand = machineRepository.findOneByModel(testModelName);
 
         Optional<User> userByEmail = userRepository.findByEmail(userDetails.getUsername());
 
@@ -58,7 +65,7 @@ public class EarningsServiceImpl implements EarningsService {
             earnings.setUser(userByEmail.get());
             earnings.setMachine(machineByBrand.get());
             Optional<Steel> getCountSteel = steelRepository.findBySteelSize(Integer.parseInt(addEarningsDTO.getDiameter()));
-            if (getCountSteel.isPresent()){
+            if (getCountSteel.isPresent()) {
                 Steel steel = getCountSteel.get();
                 int count = steel.getCount();
                 int numberOfSteel = Integer.parseInt(addEarningsDTO.getNumberOfSteel());
