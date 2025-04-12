@@ -14,8 +14,6 @@ public class AddEarningsDTO {
 
     private String machine;
 
-    private String uuid;
-
     public AddEarningsDTO() {
     }
 
@@ -59,11 +57,4 @@ public class AddEarningsDTO {
         this.timeAdd = timeAdd;
     }
 
-    public String getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
-    }
 }
