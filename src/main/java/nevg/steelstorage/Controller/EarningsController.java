@@ -13,12 +13,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
-import java.util.UUID;
 
 @Controller
 public class EarningsController {
@@ -47,11 +45,19 @@ public class EarningsController {
     @PostMapping("/earnings")
     public ModelAndView earnings(@Valid AddEarningsDTO addEarningsDTO, BindingResult bindingResult,
                                  @AuthenticationPrincipal UserDetails userDetails) {
+        ModelAndView modelAndView = new ModelAndView("earnings");
         if (!bindingResult.hasErrors()) {
-            boolean isAdd = earningsService.addEarning(addEarningsDTO, userDetails);
-            return new ModelAndView("redirect:/dashboard");
+            boolean checkCountOfSteel = steelService.checkAvailability(addEarningsDTO.getNumberOfSteel(),
+                    addEarningsDTO.getDiameter());
+            if (checkCountOfSteel) {
+                boolean isAdd = earningsService.addEarning(addEarningsDTO, userDetails);
+                return new ModelAndView("redirect:/dashboard");
+            } else {
+                boolean noSteel = true;
+                modelAndView.addObject("steelErr", noSteel);
+            }
         }
-        return null;
+        return modelAndView;
     }
 
     @ModelAttribute
