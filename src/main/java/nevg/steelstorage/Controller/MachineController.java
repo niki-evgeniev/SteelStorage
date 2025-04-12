@@ -23,7 +23,6 @@ public class MachineController {
 
     @GetMapping("/add_machine")
     public ModelAndView addMachine() {
-        System.out.println();
         return new ModelAndView("addMachine");
     }
 
@@ -34,14 +33,12 @@ public class MachineController {
             return new ModelAndView("addMachine");
         }
         boolean isAdded = machineService.addNewMachine(addMachineDTO, userDetails);
-
         if (!isAdded){
             ModelAndView modelAndView = new ModelAndView("addMachine");
             String machineErr= "This serial number or machine exist";
             modelAndView.addObject("machineErr", machineErr);
             return modelAndView;
         }
-
         return new ModelAndView("redirect:/dashboard");
     }
 
