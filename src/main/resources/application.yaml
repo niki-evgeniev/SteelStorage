@@ -26,16 +26,16 @@ spring:
       hibernate:
         format_sql: true
     defer-datasource-initialization: true
-#  thymeleaf: # Thymeleaf
-#    cache: false
-#    mode: HTML
-#    encoding: UTF-8
-#    prefix: file:src/main/resources/templates/
-#  web:
-#    resources:
-#      static-locations: file:src/main/resources/static/
-#      cache:
-#        period: 0
+  thymeleaf: # Thymeleaf
+    cache: false
+    mode: HTML
+    encoding: UTF-8
+    prefix: file:src/main/resources/templates/
+  web:
+    resources:
+      static-locations: file:src/main/resources/static/
+      cache:
+        period: 0
 
 steel storage:
   remember.me.key: 1412324

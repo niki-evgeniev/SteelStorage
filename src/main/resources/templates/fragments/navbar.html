@@ -31,17 +31,9 @@
                 </a>
             </li>
 
-            <li sec:authorize="isAuthenticated()"
-                class="sidebar-item">
-                <a class="sidebar-link"
-                   th:href="@{/sign_up}">
-                    <i class="align-middle"
-                       data-feather="user-plus"></i>
-                    <span class="align-middle"
-                          th:text="#{nav_bar_register}">Sign Up</span>
-                </a>
+            <li class="sidebar-header">
+                Work
             </li>
-
             <li class="sidebar-item">
                 <a class="sidebar-link"
                    th:href="@{/earnings}">
@@ -50,6 +42,10 @@
                     <span class="align-middle"
                           th:text="#{nav_bar_earnings}">Earnings</span>
                 </a>
+            </li>
+
+            <li class="sidebar-header">
+                Steel
             </li>
             <li class="sidebar-item">
                 <a class="sidebar-link"
@@ -60,6 +56,33 @@
                           th:text="#{nav_bar_add_steel}"></span>
                 </a>
             </li>
+
+            <li class="sidebar-header">
+                Machine
+            </li>
+
+<!--            TEST -->
+            <li class="sidebar-header">
+                Admin
+            </li>
+            <li sec:authorize="isAuthenticated()"
+                class="sidebar-item">
+                <a class="sidebar-link"
+                   th:href="@{/sign_up}">
+                    <i class="align-middle"
+                       data-feather="user-plus"></i>
+                    <span class="align-middle"
+                          th:text="#{nav_bar_register}">Sign Up</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link" th:href="@{/dashboard}">
+                    <i class="align-middle" data-feather="user"></i>
+                    <span class="align-middle"
+                          th:text="#{profile_manage_users}"></span>
+                </a>
+            </li>
+
             <li class="sidebar-item">
                 <a class="sidebar-link"
                    th:href="@{/add_machine}">
@@ -70,55 +93,27 @@
                 </a>
             </li>
 
-            <li class="sidebar-header">
-                Tools & Components
+            <li class="sidebar-item">
+                <a class="sidebar-link"
+                   th:href="@{/add_machine}">
+                    <i class="align-middle"
+                       data-feather="book"></i>
+                    <span class="align-middle"
+                          th:text="#{nav_bar_edit_machine}"></span>
+                </a>
             </li>
 
-            <!--            <li class="sidebar-item">-->
-            <!--                <a class="sidebar-link" href="ui-buttons.html">-->
-            <!--                    <i class="align-middle" data-feather="square"></i> <span class="align-middle">Buttons</span>-->
-            <!--                </a>-->
-            <!--            </li>-->
-
-            <!--            <li class="sidebar-item">-->
-            <!--                <a class="sidebar-link" href="ui-forms.html">-->
-            <!--                    <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Forms</span>-->
-            <!--                </a>-->
-            <!--            </li>-->
-
-            <!--            <li class="sidebar-item">-->
-            <!--                <a class="sidebar-link" href="ui-cards.html">-->
-            <!--                    <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Cards</span>-->
-            <!--                </a>-->
-            <!--            </li>-->
-
-            <!--            <li class="sidebar-item">-->
-            <!--                <a class="sidebar-link" href="ui-typography.html">-->
-            <!--                    <i class="align-middle" data-feather="align-left"></i> <span class="align-middle">Typography</span>-->
-            <!--                </a>-->
-            <!--            </li>-->
-
-            <!--            <li class="sidebar-item">-->
-            <!--                <a class="sidebar-link" href="icons-feather.html">-->
-            <!--                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Icons</span>-->
-            <!--                </a>-->
-            <!--            </li>-->
-
-            <li class="sidebar-header">
-                Plugins & Addons
+            <li class="sidebar-item">
+                <a class="sidebar-link"
+                   th:href="@{/add_machine}">
+                    <i class="align-middle"
+                       data-feather="book"></i>
+                    <span class="align-middle"
+                          th:text="#{nav_bar_revision_steel}"></span>
+                </a>
             </li>
 
-            <!--            <li class="sidebar-item">-->
-            <!--                <a class="sidebar-link" href="charts-chartjs.html">-->
-            <!--                    <i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Charts</span>-->
-            <!--                </a>-->
-            <!--            </li>-->
-
-            <!--            <li class="sidebar-item">-->
-            <!--                <a class="sidebar-link" href="maps-google.html">-->
-            <!--                    <i class="align-middle" data-feather="map"></i> <span class="align-middle">Maps</span>-->
-            <!--                </a>-->
-            <!--            </li>-->
+<!--            TEST END-->
             <li sec:authorize="isAuthenticated()"
                 class="sidebar-header">
                 LOGOUT
