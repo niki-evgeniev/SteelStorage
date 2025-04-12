@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -70,5 +71,20 @@ public class SteelServiceImpl implements SteelService {
                 }).sorted(Comparator.comparing(GetDiametersDTO::getSteelSize))
                 .collect(Collectors.toList());
         return diameterDTOS;
+    }
+
+    @Override
+    public boolean checkAvailability(String numberOfSteel, String diameter) {
+        int diameterSize = Integer.parseInt(diameter);
+        int countOfPieces = Integer.parseInt(numberOfSteel);
+        Optional<Steel> steel = steelRepository.findBySteelSize(diameterSize);
+
+        if (steel.isPresent()) {
+            Integer count = steel.get().getCount();
+            if (count <= 0 || count - countOfPieces <= 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }

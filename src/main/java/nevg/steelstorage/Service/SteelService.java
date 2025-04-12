@@ -11,4 +11,6 @@ public interface SteelService {
     List<SteelStorageDTO> getAllSteelMaterial();
 
     List<GetDiametersDTO> getDiameterForAllSteel();
+
+    boolean checkAvailability(String numberOfSteel, String diameter);
 }

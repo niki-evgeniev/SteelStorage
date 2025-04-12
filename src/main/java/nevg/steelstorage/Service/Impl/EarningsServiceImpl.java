@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 
 @Service
@@ -42,38 +43,27 @@ public class EarningsServiceImpl implements EarningsService {
     @Override
     public boolean addEarning(AddEarningsDTO addEarningsDTO, UserDetails userDetails) {
         Earnings earnings = new Earnings();
-        String[] machine = addEarningsDTO.getMachine().split("\\s+");
-        int length = machine.length;
-        String testModelName = "";
 
-        for (int i = 1; i < length; i++) {
-            testModelName = testModelName + " " + machine[i];
-        }
-
-//        String machineModel = machine[1];
-//        Optional<Machine> machineByBrand = machineRepository.findByBrand(machineModel);
-//        Optional<Machine> byModelAndCounting = machineRepository.findByModelAndCounting(machineModel);
-//        Optional<Machine> machineByBrand = machineRepository.findByModel(machineModel);
-
-        Optional<Machine> machineByBrand = machineRepository.findOneByModel(testModelName);
-
-        Optional<User> userByEmail = userRepository.findByEmail(userDetails.getUsername());
+        Optional<Machine> findMachineByUuid = machineRepository.findByUuid(UUID.fromString(addEarningsDTO.getMachine()));
 
         earnings.setAddedDate(addEarningsDTO.getTimeAdd());
-        earnings.setAddedQuantity(Integer.parseInt(addEarningsDTO.getNumberOfSteel()));
-        if (machineByBrand.isPresent() && userByEmail.isPresent()) {
+        int numberOfPart = Integer.parseInt(addEarningsDTO.getNumberOfSteel());
+        earnings.setAddedQuantity(numberOfPart);
+
+        Optional<User> userByEmail = userRepository.findByEmail(userDetails.getUsername());
+        if (findMachineByUuid.isPresent() && userByEmail.isPresent()) {
             earnings.setUser(userByEmail.get());
-            earnings.setMachine(machineByBrand.get());
-            Optional<Steel> getCountSteel = steelRepository.findBySteelSize(Integer.parseInt(addEarningsDTO.getDiameter()));
+            earnings.setMachine(findMachineByUuid.get());
+            int diameterOfSteel = Integer.parseInt(addEarningsDTO.getDiameter());
+            Optional<Steel> getCountSteel = steelRepository.findBySteelSize(diameterOfSteel);
             if (getCountSteel.isPresent()) {
                 Steel steel = getCountSteel.get();
-                int count = steel.getCount();
+                int steelCount = steel.getCount();
                 int numberOfSteel = Integer.parseInt(addEarningsDTO.getNumberOfSteel());
-                steel.setCount(count - numberOfSteel);
+                steel.setCount(steelCount - numberOfSteel);
                 steelRepository.save(steel);
                 earningRepository.save(earnings);
             }
-
             return true;
         }
         return false;
