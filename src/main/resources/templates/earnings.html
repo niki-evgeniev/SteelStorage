@@ -27,8 +27,8 @@
                             <div class="card-body">
                                 <h5 class="card-title"
                                     th:text="#{earnings_title}">General Form Elements</h5>
-                                <p  th:if="${steelErr}" class="text-primary text-center"
-                                    th:text="#{steel_error}"></p>
+                                <p th:if="${steelErr}" class="text-primary text-center"
+                                   th:text="#{steel_error}"></p>
                                 <!-- General Form Elements -->
                                 <form th:method="POST"
                                       th:action="@{/earnings}"
@@ -123,14 +123,15 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <p  th:if="${steelErr}" class="text-primary text-center"
-                                        th:text="#{steel_error}"></p>
+                                    <p th:if="${steelErr}" class="text-primary text-center"
+                                       th:text="#{steel_error}"></p>
                                     <div class="row mb-3">
                                         <label class="col-sm-2 col-form-label">Submit Button</label>
                                         <div class="col-sm-10 text-center">
                                             <button type="submit"
                                                     class="btn btn-primary"
-                                                    >Submit Form</button>
+                                            >Submit Form
+                                            </button>
                                         </div>
                                     </div>
                                 </form><!-- End General Form Elements -->
