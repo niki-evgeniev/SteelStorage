@@ -45,10 +45,9 @@ public class EarningsServiceImpl implements EarningsService {
         Earnings earnings = new Earnings();
 
         Optional<Machine> findMachineByUuid = machineRepository.findByUuid(UUID.fromString(addEarningsDTO.getMachine()));
-
         earnings.setAddedDate(addEarningsDTO.getTimeAdd());
         int numberOfPart = Integer.parseInt(addEarningsDTO.getNumberOfSteel());
-        earnings.setAddedQuantity(numberOfPart);
+        earnings.setWorkedQuantity(numberOfPart);
 
         Optional<User> userByEmail = userRepository.findByEmail(userDetails.getUsername());
         if (findMachineByUuid.isPresent() && userByEmail.isPresent()) {
