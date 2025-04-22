@@ -56,9 +56,8 @@
                                             <select th:field="*{diameter}"
                                                     class="form-select"
                                                     aria-label="Default select example">
-                                                <option selected
-                                                        th:text="#{add_steel_select_steel_diameter}"
-                                                        th:value="#{add_steel_select_steel_diameter}">Select Steel
+                                                <option value="" selected
+                                                        th:text="#{add_steel_select_steel_diameter}">Select Steel
                                                     Diameter
                                                 </option>
                                                 <option value="1"
@@ -67,6 +66,10 @@
                                                         th:text="'&phi; ' + ${size.steelSize}"></option>
 
                                             </select>
+                                        </div>
+                                        <div class="text-primary text-center"
+                                             th:if="${#fields.hasErrors('diameter')}"
+                                             th:errors="*{diameter}">Please, enter your name!
                                         </div>
                                     </div>
 
