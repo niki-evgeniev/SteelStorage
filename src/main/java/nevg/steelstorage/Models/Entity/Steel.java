@@ -31,6 +31,9 @@ public class Steel extends BaseEntity {
     @Column(name = "last_modified", columnDefinition = "DATETIME(0)")
     private LocalDateTime lastModified;
 
+    @ManyToOne
+    private User user;
+
     public Steel() {
     }
 
@@ -88,5 +91,13 @@ public class Steel extends BaseEntity {
 
     public void setSteelType(SteelType steelType) {
         this.steelType = steelType;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

@@ -40,9 +40,10 @@ public class SteelController {
 
         if (bindingResult.hasErrors()){
             List<GetDiametersDTO> getDiametersDTOS = steelService.getDiameterForAllSteel();
-            return new ModelAndView("addSteel").addObject("diameters", getDiametersDTOS);
+            return new ModelAndView("addSteel")
+                    .addObject("diameters", getDiametersDTOS);
         }
-
+        steelService.addCutSteel(addSteelDTO, userDetails);
         return new ModelAndView("redirect:/dashboard");
     }
 
