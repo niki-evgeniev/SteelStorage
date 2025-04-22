@@ -24,7 +24,7 @@ public class SteelStorageUserService implements UserDetailsService {
                 .map(SteelStorageUserService::mapUser)
                 .orElseThrow(() -> new UsernameNotFoundException("User " + email + " not found"));
 
-        System.out.printf("LOGIN USER " +  userDetails.getUsername());
+        System.out.printf("LOGIN USER " +  userDetails.getUsername() + "%n");
         return userDetails;
     }
 
