@@ -34,7 +34,7 @@ public class SecurityConfiguration {
                         .permitAll()
                         .requestMatchers("/", "/sign_in", "/restart")
                         .permitAll()
-                        .requestMatchers("/earnings")
+                        .requestMatchers("/earnings", "/add_steel")
                         .authenticated()
                         .anyRequest().authenticated()
 
