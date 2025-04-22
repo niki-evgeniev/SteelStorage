@@ -29,26 +29,40 @@
                                 <h5 class="card-title">General Form Elements</h5>
 
                                 <!-- General Form Elements -->
-                                <form>
+                                <form th:method="POST"
+                                      th:action="@{/add_steel}"
+                                      th:object="${addSteelDTO}">
                                     <div class="row mb-3">
-                                        <label for="inputNumber" class="col-sm-2 col-form-label"
+                                        <label for="cutPieces"
+                                               class="col-sm-2 col-form-label"
                                                th:text="#{add_steel_number_of_cutter}">Number of cutter pieces</label>
                                         <div class="col-sm-10">
-                                            <input type="number"
+                                            <input th:field="*{cutPieces}"
+                                                   type="number"
                                                    class="form-control"
+                                                   id="cutPieces"
+                                                   name="cutPieces"
                                                    th:placeholder="#{add_steel_placeholder_number_of_cutter}">
+                                        </div>
+                                        <div class="text-primary text-center"
+                                             th:if="${#fields.hasErrors('cutPieces')}"
+                                             th:errors="*{cutPieces}">Please, enter your name!
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label class="col-sm-2 col-form-label"
                                                th:text="#{add_steel_steel_size}">Steel Size</label>
                                         <div class="col-sm-10">
-                                            <select class="form-select" aria-label="Default select example">
+                                            <select th:field="*{diameter}"
+                                                    class="form-select"
+                                                    aria-label="Default select example">
                                                 <option selected
-                                                        th:text="#{add_steel_select_steel_diameter}">Select Steel
+                                                        th:text="#{add_steel_select_steel_diameter}"
+                                                        th:value="#{add_steel_select_steel_diameter}">Select Steel
                                                     Diameter
                                                 </option>
-                                                <option th:each="size : ${diameters}"
+                                                <option value="1"
+                                                        th:each="size : ${diameters}"
                                                         th:value="${size.steelSize}"
                                                         th:text="'&phi; ' + ${size.steelSize}"></option>
 
